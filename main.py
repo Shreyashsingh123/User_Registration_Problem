@@ -8,7 +8,7 @@ class User:
         self.phone=phone
         self.password=password
     def __str__(self):
-        return f"First Name:{self.First_name}\nLast Name:{self.last_name}\nEmail:{self.email}\nPhone number:{self.phone}\nPassword:{self.password}"
+        return f"User Details are:\nFirst Name:{self.First_name}\nLast Name:{self.last_name}\nEmail:{self.email}\nPhone number:{self.phone}\nPassword:{self.password}"
 
 def is_Valid_first_name(first_name):
     '''
@@ -39,10 +39,11 @@ def is_Valid_last_name(last_name):
 
 def is_valid_email(email):
     '''
-    Validation of a basic Email Address
+    Validation of a Email Address as
+    it should follow all condition 
     '''
     try:
-        pattern="^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)+$"
+        pattern="^[a-zA-Z0-9-_]+(\\.[a-zA-Z0-9-_]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]{2,}){1,3}$"
         match=re.match(pattern,email)
         if not match:
             raise ValueError ("! Invalid Email ")
