@@ -1,13 +1,14 @@
 # User registration problem
 import re
 class User:
-    def __init__(self,First_name,last_name,email,phone):
+    def __init__(self,First_name,last_name,email,phone,password):
         self.First_name=First_name
         self.last_name=last_name
         self.email=email
         self.phone=phone
+        self.password=password
     def __str__(self):
-        return f"First Name:{self.First_name}\nLast Name:{self.last_name}\nEmail:{self.email}\nPhone number:{self.phone}"
+        return f"First Name:{self.First_name}\nLast Name:{self.last_name}\nEmail:{self.email}\nPhone number:{self.phone}\nPassword:{self.password}"
 
 def is_Valid_first_name(first_name):
     '''
@@ -49,11 +50,27 @@ def is_valid_email(email):
     except ValueError as e:
         print(e)
 def is_Valid_Phone(phone):
+    '''
+    Validate the phone number of password that it should start with 
+    country code followed by space and then phone number 
+    '''
     try:
         pattern="^[0-9]{1,3}\s[6-9][0-9]{9}$"
         match=re.match(pattern,phone)
         if not match:
             raise ValueError ("! Invalid Phone number format ")
+        return True
+    except ValueError as e:
+        print(e)
+def is_valid_password(password):
+    '''
+    Validate the password of user that it should be of length 8
+    '''
+    try:
+        pattern="^[a-zA-Z0-9@#$%^_=&-]{8,}"
+        match=re.match(pattern,password)
+        if not match:
+            raise ValueError ("! Invalid Password format ")
         return True
     except ValueError as e:
         print(e)
@@ -63,12 +80,14 @@ def main():
         last_name=input("Enter last name")
         email=input("Enyter email address:")
         phone=input("Enter your phone number:" )
+        password=input("Enter Password:")
         valid_first=is_Valid_first_name(first_name)
         valid_last=is_Valid_last_name(last_name)
         valid_email=is_valid_email(email)
         valid_phone=is_Valid_Phone(phone)
-        if valid_first==True and valid_last==True and valid_email==True and valid_phone==True:
-            user1=User(first_name,last_name,email,phone)
+        valid_password=is_valid_password(password)
+        if valid_first==True and valid_last==True and valid_email==True and valid_phone==True and valid_password==True:
+            user1=User(first_name,last_name,email,phone,password)
             print(user1)
             # return
 
