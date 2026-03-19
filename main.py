@@ -66,14 +66,18 @@ def is_valid_password(password):
     '''
     Validate the password of user that it should be of length 8 and 
     it should have at least one upper case letter and one numeric number should
-    be there
+    be there and also only one special character should be there
     '''
     try:
-        pattern="^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9@#$%^_=&-]{8,}"
+        pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$^%&_])[a-zA-Z0-9!@#$%^&_]{8,}$"
         match=re.match(pattern,password)
         if not match:
             raise ValueError ("! Invalid Password format ")
-        return True
+        if match and len(re.findall(r"[!@#$^%&_]",password))==1:
+            return True
+        else:
+            raise ValueError ("! Invalid Password format ")
+
     except ValueError as e:
         print(e)
 
