@@ -1,13 +1,17 @@
 # User registration problem
 import re
 class User:
-    def __init__(self,First_name,last_name):
+    def __init__(self,First_name,last_name,email):
         self.First_name=First_name
         self.last_name=last_name
+        self.email=email
     def __str__(self):
-        return f"{self.First_name} {self.last_name}"
+        return f"{self.First_name}\n{self.last_name}\n{self.email}"
 
 def is_Valid_first_name(first_name):
+    '''
+    Validate First name of user as per condition
+    '''
     try:
         pattern="^[A-Z][A-Za-z]{3,}$"
         match=re.match(pattern,first_name)
@@ -18,6 +22,10 @@ def is_Valid_first_name(first_name):
         print(e)
 
 def is_Valid_last_name(last_name):
+    '''
+    Validate last name of user 
+    '''
+    
     try:
         pattern="^[A-Z][A-Za-z]{3,}$"
         match=re.match(pattern,last_name)
@@ -27,14 +35,29 @@ def is_Valid_last_name(last_name):
     except ValueError as e:
         print(e)
 
+def is_valid_email(email):
+    '''
+    Validation of a basic Email Address
+    '''
+    try:
+        pattern="^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)+$"
+        match=re.match(pattern,email)
+        if not match:
+            raise ValueError ("! Invalid Email ")
+        return True
+    except ValueError as e:
+        print(e)
+        
 def main():
     while(True):
         first_name=input("Enter first name: ")
         last_name=input("Enter last name")
+        email=input("Enyter email address:")
         valid_first=is_Valid_first_name(first_name)
         valid_last=is_Valid_last_name(last_name)
-        if valid_first==True and valid_last==True:
-            user1=User(first_name,last_name)
+        valid_email=is_valid_email(email)
+        if valid_first==True and valid_last==True and valid_email==True:
+            user1=User(first_name,last_name,email)
             print(user1)
             # return
 
