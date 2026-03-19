@@ -64,16 +64,18 @@ def is_Valid_Phone(phone):
         print(e)
 def is_valid_password(password):
     '''
-    Validate the password of user that it should be of length 8
+    Validate the password of user that it should be of length 8 and 
+    it should have at least one upper case letter
     '''
     try:
-        pattern="^[a-zA-Z0-9@#$%^_=&-]{8,}"
+        pattern="^(?=.*[A-Z])[a-zA-Z0-9@#$%^_=&-]{8,}"
         match=re.match(pattern,password)
         if not match:
             raise ValueError ("! Invalid Password format ")
         return True
     except ValueError as e:
         print(e)
+
 def main():
     while(True):
         first_name=input("Enter first name: ")
