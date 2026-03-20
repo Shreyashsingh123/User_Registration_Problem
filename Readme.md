@@ -26,6 +26,10 @@
 
 # │── main.py
 
+# │── pytest/
+
+# │    └── test.py
+
 # └── README.md
 
 # ```
@@ -36,7 +40,7 @@
 
 # ```bash
 
-# git clone <https://github.com/Shreyashsingh123/User_Registration_Problem>
+# git clone https://github.com/Shreyashsingh123/User_Registration_Problem
 
 # ```
 
@@ -48,7 +52,7 @@
 
 # ```
 
-# 3. Run the program:
+# 3. Run the main program:
 
 # ```bash
 
@@ -56,25 +60,52 @@
 
 # ```
 
+---
+
+## 🧪 Running Tests (Pytest)
+
+# This project includes test cases using **pytest** for validating functionality.
+
+# 1. Install pytest (if not installed):
+
+# ```bash
+
+# pip install pytest
+
+# ```
+
+# 2. Run tests:
+
+# ```bash
+
+# pytest
+
+# ```
+
+# All test cases are located inside the **pytest/test.py** file.
+
+---
+
 ## 🧪 Validation Rules (Example)
 
-# - **Name** → Starts with capital letter, minimum 3 characters
+# - **FirstName** → Starts with capital letter, minimum 3 characters
+# - **LastName** → Starts with capital letter, minimum 3 characters
 
-# - **Email** → Standard email format (e.g., [abc@gmail.com])
+# - **Email** → Standard email format (e.g., [abc@gmail.com](mailto:abc@gmail.com))
 
-# - **Phone Number** → Country code + number
+# - **Phone Number** → Country code +(space)+ number
 
 # - **Password** →
 
-     - Minimum 8 characters
+# - Minimum 8 characters
 
-     - At least 1 uppercase letter
+      - At least 1 uppercase letter
 
-     - At least 1 lowercase letter
+      - At least 1 lowercase letter
 
-     - At least 1 digit
+      - At least 1 digit
 
-     - Exactly 1 special character
+      - Exactly 1 special character
 
 ## 🛠️ Technologies Used
 
@@ -82,6 +113,5 @@
 
 # - 🔍 Regular Expressions (Regex)
 
-
-
+# - 🧪 Pytest (for testing)
 
