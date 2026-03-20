@@ -8,7 +8,7 @@ pattern="^[A-Z][A-Za-z]{3,}$"
     ("Ankur",True),
     ("ayush",False),
     ("Harshit",True),
-    ("aditya",True),
+    ("aditya",False),
     ("An",False)
 ])
 
@@ -25,7 +25,7 @@ def test_first_name(first_name,expected):
     ("Kumar2",False)
 ])
 
-def test_first_name(last_name,expected):
+def test_last_name(last_name,expected):
     ans=bool(re.match(pattern,last_name))
     assert ans==expected
 
@@ -75,11 +75,11 @@ password_Pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$^%&_])[a-zA-Z0-9!@#$^%&_]{8,}
    ("Shreyash1234@", True),
     ("ayush12345@", False),       
     ("Singh@", False), 
-    ("ayushman@", False),
+    ("Ayushman1@", True),
     ("Ayush123Saq",False)
 
 
 ])
 def test_password(password, expected):
-    result = bool(re.match(password_Pattern,password))  
+    result = bool(re.match(password_Pattern,password)) and len(re.findall(r"[!@#$^%&_]",password))==1 
     assert result == expected
