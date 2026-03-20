@@ -43,7 +43,7 @@ def is_valid_email(email):
     it should follow all condition 
     '''
     try:
-        pattern="^[a-zA-Z0-9-_]+(\\.[a-zA-Z0-9-_]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]{2,}){1,3}$"
+        pattern="^[a-zA-Z0-9][a-zA-Z0-9-_+]+(\\.[a-zA-Z0-9-_+]+)*@[a-zA-Z]+(\\.[a-zA-Z0-9]{2,}){1,2}$"
         match=re.match(pattern,email)
         if not match:
             raise ValueError ("! Invalid Email ")
